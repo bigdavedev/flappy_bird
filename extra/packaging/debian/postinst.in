@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+desktop-file-install @CPACK_PACKAGING_INSTALL_PREFIX@/share/applications/FlappyBird-@PROJECT_NAME@.desktop

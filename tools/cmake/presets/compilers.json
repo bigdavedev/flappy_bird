@@ -1,0 +1,43 @@
+{
+	"version": 6,
+	"configurePresets": [
+		{
+			"name": "vs2022",
+			"hidden": true,
+			"cacheVariables": {
+				"CMAKE_TOOLCHAIN_FILE": {
+					"type": "STRING",
+					"value": "tools/cmake/toolchains/visual-studio-cl.toolchain.cmake"
+				}
+			},
+			"toolset": {
+				"value": "host=x64",
+				"strategy": "external"
+			},
+			"architecture": {
+				"value": "x64",
+				"strategy": "external"
+			}
+		},
+		{
+			"name": "clang",
+			"hidden": true,
+			"cacheVariables": {
+				"CMAKE_TOOLCHAIN_FILE": {
+					"type": "STRING",
+					"value": "tools/cmake/toolchains/clang.toolchain.cmake"
+				}
+			}
+		},
+		{
+			"name": "gcc",
+			"hidden": true,
+			"cacheVariables": {
+				"CMAKE_TOOLCHAIN_FILE": {
+					"type": "STRING",
+					"value": "tools/cmake/toolchains/gcc.toolchain.cmake"
+				}
+			}
+		}
+	]
+}

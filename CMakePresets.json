@@ -1,0 +1,263 @@
+{
+	"version": 6,
+	"include": [
+		"tools/cmake/presets/base.json",
+		"tools/cmake/presets/checks.json",
+		"tools/cmake/presets/compilers.json",
+		"tools/cmake/presets/documentation.json",
+		"tools/cmake/presets/generators.json",
+		"tools/cmake/presets/platforms.json",
+		"tools/cmake/presets/sanitizer_workflows.json"
+	],
+	"configurePresets": [
+		{
+			"name": "dev-default",
+			"displayName": "Default configuration for developers",
+			"binaryDir": "build/${presetName}",
+			"hidden": true,
+			"inherits": [
+				"base",
+				"ninja"
+			],
+			"cacheVariables": {
+				"FLAPPY_BIRD_BUILD_DOCS": {
+					"type": "BOOL",
+					"value": "TRUE"
+				}
+			}
+		},
+		{
+			"name": "ci-windows-vs2022-cl-ninja",
+			"displayName": "Windows VisualStudio 2022",
+			"binaryDir": "build/${presetName}",
+			"inherits": [
+				"base",
+				"windows",
+				"vs2022",
+				"ninja"
+			]
+		},
+		{
+			"name": "ci-linux-clang-ninja",
+			"displayName": "Linux Clang ",
+			"binaryDir": "build/${presetName}",
+			"inherits": [
+				"base",
+				"linux",
+				"clang",
+				"ninja"
+			]
+		},
+		{
+			"name": "ci-linux-gcc-ninja",
+			"displayName": "Linux GCC ",
+			"binaryDir": "build/${presetName}",
+			"inherits": [
+				"base",
+				"linux",
+				"gcc",
+				"ninja"
+			]
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "ci-windows-vs2022-cl-ninja",
+			"hidden": true,
+			"displayName": "Windows VisualStudio 2022",
+			"configurePreset": "ci-windows-vs2022-cl-ninja",
+			"targets": "all",
+			"inherits": ["windows"]
+		},
+		{
+			"name": "ci-windows-vs2022-cl-ninja-debug",
+			"displayName": "Windows VisualStudio 2022",
+			"inherits": ["ci-windows-vs2022-cl-ninja"],
+			"configuration": "Debug"
+		},
+		{
+			"name": "ci-windows-vs2022-cl-ninja-release",
+			"displayName": "Windows VisualStudio 2022",
+			"inherits": ["ci-windows-vs2022-cl-ninja"],
+			"configuration": "Release"
+		},
+		{
+			"name": "ci-linux-gcc-ninja",
+			"hidden": true,
+			"displayName": "Linux GCC",
+			"configurePreset": "ci-linux-gcc-ninja",
+			"inherits": [ "linux" ],
+			"targets": "all"
+		},
+		{
+			"name": "ci-linux-gcc-ninja-debug",
+			"displayName": "Linux GCC Debug",
+			"inherits": ["ci-linux-gcc-ninja"],
+			"configuration": "Debug"
+		},
+		{
+			"name": "ci-linux-gcc-ninja-release",
+			"displayName": "Linux GCC Release",
+			"inherits": ["ci-linux-gcc-ninja"],
+			"configuration": "Release"
+		},
+		{
+			"name": "ci-linux-clang-ninja",
+			"hidden": true,
+			"displayName": "Linux Clang",
+			"configurePreset": "ci-linux-clang-ninja",
+			"inherits": [ "linux" ],
+			"targets": "all"
+		},
+		{
+			"name": "ci-linux-clang-ninja-debug",
+			"displayName": "Linux Clang Debug",
+			"inherits": ["ci-linux-clang-ninja"],
+			"configuration": "Debug"
+		},
+		{
+			"name": "ci-linux-clang-ninja-release",
+			"displayName": "Linux Clang Release",
+			"inherits": ["ci-linux-clang-ninja"],
+			"configuration": "Release"
+		}
+	],
+	"testPresets": [
+		{
+			"name": "ci-test-base",
+			"hidden": true,
+			"output": {
+				"outputOnFailure": true
+			}
+		},
+		{
+			"name": "ci-windows-vs2022-cl-ninja-test",
+			"hidden": true,
+			"inherits": [
+				"ci-test-base"
+			],
+			"configurePreset": "ci-windows-vs2022-cl-ninja"
+		},
+		{
+			"name": "ci-windows-vs2022-cl-ninja-test-debug",
+			"inherits": ["ci-windows-vs2022-cl-ninja-test"],
+			"configuration": "Debug"
+		},
+		{
+			"name": "ci-windows-vs2022-cl-ninja-test-release",
+			"inherits": ["ci-windows-vs2022-cl-ninja-test"],
+			"configuration": "Release"
+		},
+		{
+			"name": "ci-linux-gcc-ninja-test",
+			"hidden": true,
+			"inherits": ["ci-test-base"],
+			"configurePreset": "ci-linux-gcc-ninja"
+		},
+		{
+			"name": "ci-linux-gcc-ninja-test-debug",
+			"inherits": ["ci-linux-gcc-ninja-test"],
+			"configuration": "Debug"
+		},
+		{
+			"name": "ci-linux-gcc-ninja-test-release",
+			"inherits": ["ci-linux-gcc-ninja-test"],
+			"configuration": "Release"
+		},
+		{
+			"name": "ci-linux-clang-ninja-test",
+			"hidden": true,
+			"inherits": ["ci-test-base"],
+			"configurePreset": "ci-linux-clang-ninja"
+		},
+		{
+			"name": "ci-linux-clang-ninja-test-debug",
+			"inherits": ["ci-linux-clang-ninja-test"],
+			"configuration": "Debug"
+		},
+		{
+			"name": "ci-linux-clang-ninja-test-release",
+			"inherits": ["ci-linux-clang-ninja-test"],
+			"configuration": "Release"
+		}
+	],
+	"packagePresets": [
+		{
+			"name": "ci-linux-clang-ninja-package",
+			"configurePreset": "ci-linux-clang-ninja",
+			"configurations": ["Release"],
+			"generators": ["DEB","TGZ"]
+		},
+		{
+			"name": "ci-linux-gcc-ninja-package",
+			"configurePreset": "ci-linux-gcc-ninja",
+			"configurations": ["Release"],
+			"generators": ["DEB","TGZ"]
+		},
+		{
+			"name": "ci-windows-vs2022-cl-ninja-package",
+			"configurePreset": "ci-windows-vs2022-cl-ninja",
+			"configurations": ["Release"],
+			"generators": ["WIX"]
+		}
+	],
+	"workflowPresets": [
+		{
+			"name": "ci-windows-vs2022-cl-ninja-test",
+			"displayName": "Configure, build, test on Windows with MSVC",
+			"steps": [
+				{ "type": "configure", "name": "ci-windows-vs2022-cl-ninja"            },
+				{ "type": "build",     "name": "ci-windows-vs2022-cl-ninja-debug"      },
+				{ "type": "test",      "name": "ci-windows-vs2022-cl-ninja-test-debug" }
+			]
+		},
+		{
+			"name": "ci-linux-clang-ninja-test",
+			"displayName": "Configure, build, test on Linux with Clang",
+			"steps": [
+				{ "type": "configure", "name": "ci-linux-clang-ninja"            },
+				{ "type": "build",     "name": "ci-linux-clang-ninja-debug"      },
+				{ "type": "test",      "name": "ci-linux-clang-ninja-test-debug" }
+			]
+		},
+		{
+			"name": "ci-linux-gcc-ninja-test",
+			"displayName": "Configure, build, test on Linux with GCC",
+			"steps": [
+				{ "type": "configure", "name": "ci-linux-gcc-ninja"            },
+				{ "type": "build",     "name": "ci-linux-gcc-ninja-debug"      },
+				{ "type": "test",      "name": "ci-linux-gcc-ninja-test-debug" }
+			]
+		},
+		{
+			"name": "ci-windows-vs2022-cl-ninja-package",
+			"displayName": "Configure, build, test, and package on Windows with MSVC",
+			"steps": [
+				{ "type": "configure", "name": "ci-windows-vs2022-cl-ninja"              },
+				{ "type": "build",     "name": "ci-windows-vs2022-cl-ninja-release"      },
+				{ "type": "test",      "name": "ci-windows-vs2022-cl-ninja-test-release" },
+				{ "type": "package",   "name": "ci-windows-vs2022-cl-ninja-package"      }
+			]
+		},
+		{
+			"name": "ci-linux-clang-ninja-package",
+			"displayName": "Configure, build, test, and package on Linux with Clang",
+			"steps": [
+				{ "type": "configure", "name": "ci-linux-clang-ninja"              },
+				{ "type": "build",     "name": "ci-linux-clang-ninja-release"      },
+				{ "type": "test",      "name": "ci-linux-clang-ninja-test-release" },
+				{ "type": "package",   "name": "ci-linux-clang-ninja-package"      }
+			]
+		},
+		{
+			"name": "ci-linux-gcc-ninja-package",
+			"displayName": "Configure, build, test, and package on Linux with GCC",
+			"steps": [
+				{ "type": "configure", "name": "ci-linux-gcc-ninja"              },
+				{ "type": "build",     "name": "ci-linux-gcc-ninja-release"      },
+				{ "type": "test",      "name": "ci-linux-gcc-ninja-test-release" },
+				{ "type": "package",   "name": "ci-linux-gcc-ninja-package"      }
+			]
+		}
+	]
+}

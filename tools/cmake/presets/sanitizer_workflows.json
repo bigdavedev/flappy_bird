@@ -1,0 +1,192 @@
+{
+	"version": 6,
+	"include": [
+		"base.json",
+		"generators.json",
+		"platforms.json"
+	],
+	"configurePresets": [
+		{
+			"name": "ci-sanitize-base",
+			"hidden": true,
+			"inherits": [
+				"base",
+				"linux",
+				"ninja"
+			],
+			"binaryDir": "build/sanitizers/${presetName}",
+			"cacheVariables": {
+				"FLAPPY_BIRD_BUILD_DOCS": {
+					"type": "BOOL",
+					"value": "FALSE"
+				},
+				"FLAPPY_BIRD_ENABLE_TESTING": {
+					"type": "BOOL",
+					"value": "TRUE"
+				},
+				"FLAPPY_BIRD_ENABLE_PACKAGING": {
+					"type": "BOOL",
+					"value": "FALSE"
+				}
+			}
+		},
+		{
+			"name": "ci-sanitize-ub",
+			"displayName": "Undefined Behaviour Sanitizer",
+			"inherits": [
+				"ci-sanitize-base"
+			],
+			"cacheVariables": {
+				"CMAKE_TOOLCHAIN_FILE": {
+					"type": "STRING",
+					"value": "tools/cmake/toolchains/ubsan.toolchain.cmake"
+				}
+			}
+		},
+		{
+			"name": "ci-sanitize-leak",
+			"displayName": "Leak Sanitizer",
+			"inherits": [
+				"ci-sanitize-base"
+			],
+			"cacheVariables": {
+				"CMAKE_TOOLCHAIN_FILE": {
+					"type": "STRING",
+					"value": "tools/cmake/toolchains/lsan.toolchain.cmake"
+				}
+			}
+		},
+		{
+			"name": "ci-sanitize-thread",
+			"displayName": "Thread Sanitizer",
+			"inherits": [
+				"ci-sanitize-base"
+			],
+			"cacheVariables": {
+				"CMAKE_TOOLCHAIN_FILE": {
+					"type": "STRING",
+					"value": "tools/cmake/toolchains/tsan.toolchain.cmake"
+				}
+			}
+		},
+		{
+			"name": "ci-sanitize-address",
+			"displayName": "Address Sanitizer",
+			"inherits": [
+				"ci-sanitize-base"
+			],
+			"cacheVariables": {
+				"CMAKE_TOOLCHAIN_FILE": {
+					"type": "STRING",
+					"value": "tools/cmake/toolchains/asan.toolchain.cmake"
+				}
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "ci-sanitize-ub",
+			"displayName": "Undefined Behaviour Sanitizer",
+			"configurePreset": "ci-sanitize-ub",
+			"configuration": "Release",
+			"targets": "all"
+		},
+		{
+			"name": "ci-sanitize-leak",
+			"displayName": "Leak Sanitizer",
+			"configurePreset": "ci-sanitize-leak",
+			"configuration": "Debug",
+			"targets": "all"
+		},
+		{
+			"name": "ci-sanitize-thread",
+			"displayName": "Thread Sanitizer",
+			"configurePreset": "ci-sanitize-thread",
+			"configuration": "Release",
+			"targets": "all"
+		},
+		{
+			"name": "ci-sanitize-address",
+			"displayName": "Address Sanitizer",
+			"configurePreset": "ci-sanitize-address",
+			"configuration": "Release",
+			"targets": "all"
+		}
+	],
+	"testPresets": [
+		{
+			"name": "ci-sanitize-ub",
+			"displayName": "Undefined Behaviour Sanitizer",
+			"configurePreset": "ci-sanitize-ub",
+			"configuration": "Release",
+			"output": {
+				"outputOnFailure": true
+			}
+		},
+		{
+			"name": "ci-sanitize-leak",
+			"displayName": "Leak Sanitizer",
+			"configurePreset": "ci-sanitize-leak",
+			"configuration": "Debug",
+			"output": {
+				"outputOnFailure": true
+			}
+		},
+		{
+			"name": "ci-sanitize-thread",
+			"displayName": "Thread Sanitizer",
+			"configurePreset": "ci-sanitize-thread",
+			"configuration": "Release",
+			"output": {
+				"outputOnFailure": true
+			}
+		},
+		{
+			"name": "ci-sanitize-address",
+			"displayName": "Address Sanitizer",
+			"configurePreset": "ci-sanitize-address",
+			"configuration": "Release",
+			"output": {
+				"outputOnFailure": true
+			}
+		}
+	],
+	"workflowPresets": [
+		{
+			"name": "ci-sanitize-ub",
+			"displayName": "Undefined Behaviour Sanitizer",
+			"steps": [
+				{ "type": "configure", "name": "ci-sanitize-ub" },
+				{ "type": "build",     "name": "ci-sanitize-ub" },
+				{ "type": "test",      "name": "ci-sanitize-ub" }
+			]
+		},
+		{
+			"name": "ci-sanitize-leak",
+			"displayName": "Leak Sanitizer",
+			"steps": [
+				{ "type": "configure", "name": "ci-sanitize-leak" },
+				{ "type": "build",     "name": "ci-sanitize-leak" },
+				{ "type": "test",      "name": "ci-sanitize-leak" }
+			]
+		},
+		{
+			"name": "ci-sanitize-thread",
+			"displayName": "Thread Sanitizer",
+			"steps": [
+				{ "type": "configure", "name": "ci-sanitize-thread" },
+				{ "type": "build",     "name": "ci-sanitize-thread" },
+				{ "type": "test",      "name": "ci-sanitize-thread" }
+			]
+		},
+		{
+			"name": "ci-sanitize-address",
+			"displayName": "Address Sanitizer",
+			"steps": [
+				{ "type": "configure", "name": "ci-sanitize-address" },
+				{ "type": "build",     "name": "ci-sanitize-address" },
+				{ "type": "test",      "name": "ci-sanitize-address" }
+			]
+		}
+	]
+}

@@ -1,0 +1,58 @@
+{
+	"version": 6,
+	"include": [
+		"base.json",
+		"compilers.json",
+		"platforms.json",
+		"generators.json"
+	],
+	"configurePresets": [
+		{
+			"name": "ci-check-clang-tidy",
+			"displayName": "Clang Tidy",
+			"binaryDir": "build/${presetName}",
+			"inherits": [
+				"base",
+				"linux",
+				"clang",
+				"ninja"
+			],
+			"cacheVariables": {
+				"FLAPPY_BIRD_ENABLE_CLANG_TIDY": {
+					"type": "BOOL",
+					"value": "TRUE"
+				},
+				"FLAPPY_BIRD_ENABLE_TESTING": {
+					"type": "BOOL",
+					"value": "FALSE"
+				},
+				"FLAPPY_BIRD_ENABLE_PACKAGING": {
+					"type": "BOOL",
+					"value": "FALSE"
+				},
+				"FLAPPY_BIRD_BUILD_DOCS": {
+					"type": "BOOL",
+					"value": "FALSE"
+				}
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "ci-check-clang-tidy",
+			"displayName": "Clang Tidy",
+			"configurePreset": "ci-check-clang-tidy",
+			"targets": "all"
+		}
+	],
+	"workflowPresets": [
+		{
+			"name": "ci-check-clang-tidy",
+			"displayName": "Clang Tidy",
+			"steps": [
+				{ "type": "configure", "name": "ci-check-clang-tidy" },
+				{ "type": "build",     "name": "ci-check-clang-tidy" }
+			]
+		}
+	]
+}

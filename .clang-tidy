@@ -1,0 +1,101 @@
+Checks: >
+  *,
+  -abseil-*,
+  -altera-*,
+  -android-*,
+  -boost-*,
+  -clang-analyzer-fuchsia*,
+  -clang-analyzer-optin.mpi*,
+  -clang-analyzer-optin.osx*,
+  -clang-analyzer-osx*,
+  -clang-analyzer-webkit*,
+  -clang-diagnostic-unused-command-line-argument,
+  -cppcoreguidelines-pro-type-union-access,
+  -darwin-*,
+  -fuchsia-*,
+  -readability-avoid-const-params-in-decls,
+  -linuxkernel-*,
+  -llvm-*,
+  -llvmlibc-*,
+  -modernize-use-trailing-return-type,
+  -mpi-*,
+  -objc-*,
+  -openmp-*,
+  -performance-enum-size,
+  -zircon-*,
+WarningsAsErrors: '*'
+HeaderFilterRegex: '.*'
+FormatStyle: file
+SystemHeaders: false
+CheckOptions:
+  cppcoreguidelines-avoid-magic-numbers.IgnoredIntegerValues: '0;1;2'
+  cppcoreguidelines-avoid-magic-numbers.IgnoredFloatingPointValues: '0.0;0.5;1.0;2.0'
+  misc-include-cleaner.IgnoreHeaders: 'SDL3/SDL_main.h'
+  readability-avoid-magic-numbers.IgnoreIntegerValues: '0;1;2'
+  readability-avoid-magic-numbers.IgnoredFloatingPointValues: '0.0;0.5;1.0;2.0'
+  readability-identifier-length.IgnoredVariableNames: 'x|y|id|dt'
+  readability-identifier-length.IgnoredParameterNames: 'x|y|id|dt'
+  readability-identifier-naming.AbstractClassCase: lower_case
+  readability-identifier-naming.ClassCase: lower_case
+  readability-identifier-naming.ClassConstantCase: lower_case
+  readability-identifier-naming.ClassMemberCase: lower_case
+  readability-identifier-naming.ClassMemberPrefix: m_
+  readability-identifier-naming.ClassMethodCase: lower_case
+  readability-identifier-naming.ConstantCase: lower_case
+  readability-identifier-naming.ConstantMemberCase: lower_case
+  readability-identifier-naming.ConstantMemberPrefix: m_
+  readability-identifier-naming.ConstantParameterCase: lower_case
+  readability-identifier-naming.ConstantPointerParameterCase: lower_case
+  readability-identifier-naming.ConstexprFunctionCase: lower_case
+  readability-identifier-naming.ConstexprMethodCase: lower_case
+  readability-identifier-naming.ConstexprVariableCase: lower_case
+  readability-identifier-naming.EnumCase: lower_case
+  readability-identifier-naming.EnumConstantCase: lower_case
+  readability-identifier-naming.FunctionCase: lower_case
+  readability-identifier-naming.GetConfigPerFile: true
+  readability-identifier-naming.GlobalConstantCase: lower_case
+  readability-identifier-naming.GlobalConstantPrefix: g_
+  readability-identifier-naming.GlobalConstantPointerCase: lower_case
+  readability-identifier-naming.GlobalConstantPointerPrefix: g_
+  readability-identifier-naming.GlobalFunctionCase: lower_case
+  readability-identifier-naming.GlobalPointerCase: lower_case
+  readability-identifier-naming.GlobalPointerPrefix: g_
+  readability-identifier-naming.GlobalVariableCase: lower_case
+  readability-identifier-naming.GlobalVariablePrefix: g_
+  readability-identifier-naming.IgnoreMainLikeFunctions: false
+  readability-identifier-naming.InlineNamespaceCase: lower_case
+  readability-identifier-naming.LocalConstantCase: lower_case
+  readability-identifier-naming.LocalConstantPointerCase: lower_case
+  readability-identifier-naming.LocalPointerCase: lower_case
+  readability-identifier-naming.LocalVariableCase: lower_case
+  readability-identifier-naming.MacroDefinitionCase: UPPER_CASE
+  readability-identifier-naming.MemberCase: lower_case
+  readability-identifier-naming.MemberPrefix: m_
+  readability-identifier-naming.MethodCase: lower_case
+  readability-identifier-naming.NamespaceCase: lower_case
+  readability-identifier-naming.ParameterCase: lower_case
+  readability-identifier-naming.ParameterPackCase: lower_case
+  readability-identifier-naming.PointerParameterCase: lower_case
+  readability-identifier-naming.PrivateMemberCase: lower_case
+  readability-identifier-naming.PrivateMemberPrefix: m_
+  readability-identifier-naming.PrivateMethodCase: lower_case
+  readability-identifier-naming.ProtectedMemberCase: lower_case
+  readability-identifier-naming.ProtectedMemberPrefix: m_
+  readability-identifier-naming.ProtectedMethodCase: lower_case
+  readability-identifier-naming.PublicMemberCase: lower_case
+  readability-identifier-naming.PublicMethodCase: lower_case
+  readability-identifier-naming.ScopedEnumConstantCase: lower_case
+  readability-identifier-naming.StaticConstantCase: lower_case
+  readability-identifier-naming.StaticVariableCase: lower_case
+  readability-identifier-naming.StructCase: lower_case
+  readability-identifier-naming.TemplateParameterCase: CamelCase
+  readability-identifier-naming.TemplateParameterCaseIgnoredRegexp: expr-type
+  readability-identifier-naming.TemplateTemplateParameterCase: CamelCase
+  readability-identifier-naming.TypeAliasCase: lower_case
+  readability-identifier-naming.TypedefCase: lower_case
+  readability-identifier-naming.TypeTemplateParameterCase: CamelCase
+  readability-identifier-naming.TypeTemplateParameterIgnoredRegexp: expr-type
+  readability-identifier-naming.UnionCase: lower_case
+  readability-identifier-naming.ValueTemplateParameterCase: CamelCase
+  readability-identifier-naming.VariableCase: lower_case
+  readability-identifier-naming.VirtualMethodCase: lower_case

@@ -1,0 +1,27 @@
+{
+	"version": 6,
+	"configurePresets": [
+		{
+			"name": "base",
+			"hidden": true,
+			"cacheVariables": {
+				"CMAKE_EXPORT_COMPILE_COMMANDS": {
+					"type": "BOOL",
+					"value": "TRUE"
+				},
+				"CMAKE_INSTALL_PREFIX": {
+					"type": "STRING",
+					"value": "${sourceDir}/build/${presetName}/install"
+				},
+				"CMAKE_CXX_STANDARD_REQUIRED": {
+					"type": "BOOL",
+					"value": "TRUE"
+				},
+				"CMAKE_CXX_EXTENSIONS": {
+					"type": "BOOL",
+					"value": "FALSE"
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,51 @@
+{
+	"version": 6,
+	"include": [
+		"base.json",
+		"compilers.json",
+		"generators.json",
+		"platforms.json"
+	],
+	"configurePresets": [
+		{
+			"name": "ci-documentation",
+			"displayName": "Generate documentation",
+			"binaryDir": "build/${presetName}",
+			"inherits": [
+				"base",
+				"clang",
+				"linux",
+				"ninja"
+			],
+			"cacheVariables": {
+				"FLAPPY_BIRD_ENABLE_TESTING": {
+					"type": "BOOL",
+					"value": "FALSE"
+				},
+				"FLAPPY_BIRD_BUILD_DOCS": {
+					"type": "BOOL",
+					"value": "TRUE"
+				}
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "ci-documentation",
+			"displayName": "Generate documentation",
+			"configurePreset": "ci-documentation",
+			"targets": "docs"
+		}
+	],
+	"workflowPresets": [
+		{
+			"name": "ci-documentation",
+			"displayName": "Generate Documentation",
+			"steps": [
+				{ "type": "configure", "name": "ci-documentation" },
+				{ "type": "build",     "name": "ci-documentation" }
+			]
+		}
+	]
+}
+
