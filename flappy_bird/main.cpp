@@ -13,6 +13,13 @@ namespace
 {
 constexpr int screen_width = 400;
 constexpr int screen_height = 600;
+
+enum class game_state
+{
+	running,
+	paused,
+	exiting
+};
 } // namespace
 } // namespace flappy_bird
 
@@ -30,16 +37,16 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[])
 
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, nullptr);
 
-	bool running = true;
+	auto game_state = flappy_bird::game_state::running;
 
-	while (running)
+	while (game_state != flappy_bird::game_state::exiting)
 	{
 		SDL_Event sdl_event{};
 		while (SDL_PollEvent(&sdl_event))
 		{
 			if (sdl_event.type == SDL_EVENT_QUIT)
 			{
-				running = false;
+				game_state = flappy_bird::game_state::exiting;
 			}
 		}
 
