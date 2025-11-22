@@ -3,11 +3,11 @@
 include (CPM)
 
 CPMAddPackage (
-    URI "gh:libsdl-org/SDL#b54c5fd79c3d078337d170944e635552107eda89"
+    URI "gh:libsdl-org/SDL@3.3.0#fed80a0d4133579174c2087e24d2ba3c095fb27a"
 )
 
 CPMAddPackage (
-    URI "gh:libsdl-org/SDL_image#56eb60813a359560c88288ce805793fb2cc55982"
+    URI "gh:libsdl-org/SDL_image@3.3.0#11491dda68bfb9a9a270ee000fa1c13485c45384"
     OPTIONS
 		"SDLIMAGE_BACKEND_STB ON"
 		"SDLIMAGE_AVIF OFF"
@@ -27,14 +27,14 @@ CPMAddPackage (
 )
 
 CPMAddPackage (
-    URI "gh:libsdl-org/SDL_ttf#6b6bd588e8646360b08f624fb601cc2ec75c6ada"
+    URI "gh:libsdl-org/SDL_ttf@3.3.0#9125d7e4659725e364f6976f183084b5d45f95b1"
     OPTIONS
 		"SDLTTF_VENDORED ON"
 		"SDLTTF_PLUTOSVG OFF"
 )
 
 CPMAddPackage (
-    URI "gh:libsdl-org/SDL_mixer#5cdf029bae982df1d6c210f915fc151a616d982f"
+    URI "gh:libsdl-org/SDL_mixer@3.1.0#ff670fa1d43087f2ab496fc9813598995e4dfcdc"
 	OPTIONS
 		"SDLMIXER_AIFF OFF"
 		"SDLMIXER_VOC OFF"
