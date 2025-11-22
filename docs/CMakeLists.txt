@@ -11,6 +11,7 @@ FetchContent_Declare (
 FetchContent_MakeAvailable (_doxygen_theme)
 
 set (DOXYGEN_EXTRACT_ALL NO)
+set (DOXYGEN_RECURSIVE YES)
 set (DOXYGEN_GENERATE_TREEVIEW YES)
 set (DOXYGEN_DISABLE_INDEX NO)
 set (DOXYGEN_FULL_SIDEBAR NO)
@@ -40,4 +41,11 @@ doxygen_add_docs (
 	${PROJECT_SOURCE_DIR}/flappy_bird
 	${PROJECT_SOURCE_DIR}/README.md
 	${PROJECT_SOURCE_DIR}/LICENSE.md
+)
+
+add_custom_command (
+	TARGET docs POST_BUILD
+	COMMAND ${CMAKE_COMMAND} -E copy_directory
+	        ${CMAKE_CURRENT_LIST_DIR}/presentation
+	        ${CMAKE_CURRENT_BINARY_DIR}/html/presentation
 )

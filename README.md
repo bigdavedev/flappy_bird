@@ -1,6 +1,8 @@
 Flappy Bird
 ===========
 
+This repository is part of a presentation I gave for the Gothenburg C++ User Group. You can find
+the presentation material [here](presentation/index.html).
 
 Attributions
 ------------
