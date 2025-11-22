@@ -54,6 +54,8 @@ CPMAddPackage (
 
 CPMAddPackage ("gh:skypjack/entt@3.15.0")
 
+CPMAddPackage ("gh:g-truc/glm@1.0.2#1.0.2")
+
 if (FLAPPY_BIRD_ENABLE_TESTING)
 	CPMAddPackage ("gh:google/googletest@1.17.0")
 endif ()

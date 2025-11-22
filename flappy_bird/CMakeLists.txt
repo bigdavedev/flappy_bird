@@ -28,6 +28,7 @@ target_link_libraries (
 	SDL3_image::SDL3_image
 	SDL3_ttf::SDL3_ttf
 	SDL3_mixer::SDL3_mixer
+	glm::glm
 	EnTT::EnTT
 )
 
