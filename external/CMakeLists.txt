@@ -4,6 +4,8 @@ include (CPM)
 
 CPMAddPackage (
     URI "gh:libsdl-org/SDL@3.3.0#fed80a0d4133579174c2087e24d2ba3c095fb27a"
+	OPTIONS
+		"SDL_X11_XTEST OFF"
 )
 
 CPMAddPackage (
