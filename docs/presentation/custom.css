@@ -1,0 +1,63 @@
+.logo-grid {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	width: 40vw;
+	height: 40vh;
+	margin: auto auto;
+	gap: 1rem;
+}
+
+.logo-group {
+	align: center;
+	margin-bottom: 2rem;
+}
+
+.logo-cell {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.logo-cell img {
+	max-width: 80%;
+	max-height: 80%;
+}
+
+.logo-dim {
+	filter: opacity(25%) grayscale(50%);
+}
+
+/**
+ * OOP -> ECS memory layout
+ */
+.memory-row {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 12px;
+	border-radius: 6px;
+}
+
+.memory-box {
+	padding: 12px 16px;
+	border-radius: 6px;
+	color: #fff;
+	width: 128px;
+	height: 48px;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+.memory-label {
+	padding: 12px 16px;
+	border-radius: 6px;
+	width: 200px;
+	height: 48px;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.pos { background: #4caf50; }
+.vel { background: #f44336; }
+.spr { background: #2196f3; }
+.coll { background: #9c27b0; }
