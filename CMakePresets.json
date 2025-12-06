@@ -16,8 +16,7 @@
 			"binaryDir": "build/${presetName}",
 			"hidden": true,
 			"inherits": [
-				"base",
-				"ninja"
+				"base"
 			],
 			"cacheVariables": {
 				"FLAPPY_BIRD_BUILD_DOCS": {
@@ -25,6 +24,17 @@
 					"value": "TRUE"
 				}
 			}
+		},
+		{
+			"name": "dev-default-windows",
+			"displayName": "Default configuration for developers on Windows",
+			"hidden": true,
+			"inherits": [
+				"dev-default",
+				"windows",
+				"msbuild",
+				"vs2022"
+			]
 		},
 		{
 			"name": "ci-windows-vs2022-cl-ninja",
@@ -72,13 +82,13 @@
 		{
 			"name": "ci-windows-vs2022-cl-ninja-debug",
 			"displayName": "Windows VisualStudio 2022",
-			"inherits": ["ci-windows-vs2022-cl-ninja"],
+			"inherits": [ "ci-windows-vs2022-cl-ninja" ],
 			"configuration": "Debug"
 		},
 		{
 			"name": "ci-windows-vs2022-cl-ninja-release",
 			"displayName": "Windows VisualStudio 2022",
-			"inherits": ["ci-windows-vs2022-cl-ninja"],
+			"inherits": [ "ci-windows-vs2022-cl-ninja" ],
 			"configuration": "Release"
 		},
 		{
@@ -92,13 +102,13 @@
 		{
 			"name": "ci-linux-gcc-ninja-debug",
 			"displayName": "Linux GCC Debug",
-			"inherits": ["ci-linux-gcc-ninja"],
+			"inherits": [ "ci-linux-gcc-ninja" ],
 			"configuration": "Debug"
 		},
 		{
 			"name": "ci-linux-gcc-ninja-release",
 			"displayName": "Linux GCC Release",
-			"inherits": ["ci-linux-gcc-ninja"],
+			"inherits": [ "ci-linux-gcc-ninja" ],
 			"configuration": "Release"
 		},
 		{
@@ -112,13 +122,13 @@
 		{
 			"name": "ci-linux-clang-ninja-debug",
 			"displayName": "Linux Clang Debug",
-			"inherits": ["ci-linux-clang-ninja"],
+			"inherits": [ "ci-linux-clang-ninja" ],
 			"configuration": "Debug"
 		},
 		{
 			"name": "ci-linux-clang-ninja-release",
 			"displayName": "Linux Clang Release",
-			"inherits": ["ci-linux-clang-ninja"],
+			"inherits": [ "ci-linux-clang-ninja" ],
 			"configuration": "Release"
 		}
 	],
@@ -132,7 +142,6 @@
 		},
 		{
 			"name": "ci-windows-vs2022-cl-ninja-test",
-			"hidden": true,
 			"inherits": [
 				"ci-test-base"
 			],
@@ -140,44 +149,42 @@
 		},
 		{
 			"name": "ci-windows-vs2022-cl-ninja-test-debug",
-			"inherits": ["ci-windows-vs2022-cl-ninja-test"],
+			"inherits": [ "ci-windows-vs2022-cl-ninja-test" ],
 			"configuration": "Debug"
 		},
 		{
 			"name": "ci-windows-vs2022-cl-ninja-test-release",
-			"inherits": ["ci-windows-vs2022-cl-ninja-test"],
+			"inherits": [ "ci-windows-vs2022-cl-ninja-test" ],
 			"configuration": "Release"
 		},
 		{
 			"name": "ci-linux-gcc-ninja-test",
-			"hidden": true,
 			"inherits": ["ci-test-base"],
 			"configurePreset": "ci-linux-gcc-ninja"
 		},
 		{
 			"name": "ci-linux-gcc-ninja-test-debug",
-			"inherits": ["ci-linux-gcc-ninja-test"],
+			"inherits": [ "ci-linux-gcc-ninja-test" ],
 			"configuration": "Debug"
 		},
 		{
 			"name": "ci-linux-gcc-ninja-test-release",
-			"inherits": ["ci-linux-gcc-ninja-test"],
+			"inherits": [ "ci-linux-gcc-ninja-test" ],
 			"configuration": "Release"
 		},
 		{
 			"name": "ci-linux-clang-ninja-test",
-			"hidden": true,
 			"inherits": ["ci-test-base"],
 			"configurePreset": "ci-linux-clang-ninja"
 		},
 		{
 			"name": "ci-linux-clang-ninja-test-debug",
-			"inherits": ["ci-linux-clang-ninja-test"],
+			"inherits": [ "ci-linux-clang-ninja-test" ],
 			"configuration": "Debug"
 		},
 		{
 			"name": "ci-linux-clang-ninja-test-release",
-			"inherits": ["ci-linux-clang-ninja-test"],
+			"inherits": [ "ci-linux-clang-ninja-test" ],
 			"configuration": "Release"
 		}
 	],
@@ -185,20 +192,20 @@
 		{
 			"name": "ci-linux-clang-ninja-package",
 			"configurePreset": "ci-linux-clang-ninja",
-			"configurations": ["Release"],
-			"generators": ["DEB","TGZ"]
+			"configurations": [ "Release" ],
+			"generators": [ "DEB", "TGZ" ]
 		},
 		{
 			"name": "ci-linux-gcc-ninja-package",
 			"configurePreset": "ci-linux-gcc-ninja",
-			"configurations": ["Release"],
-			"generators": ["DEB","TGZ"]
+			"configurations": [ "Release" ],
+			"generators": [ "DEB", "TGZ" ]
 		},
 		{
 			"name": "ci-windows-vs2022-cl-ninja-package",
 			"configurePreset": "ci-windows-vs2022-cl-ninja",
-			"configurations": ["Release"],
-			"generators": ["WIX"]
+			"configurations": [ "Release" ],
+			"generators": [ "WIX" ]
 		}
 	],
 	"workflowPresets": [

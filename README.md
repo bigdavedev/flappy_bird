@@ -4,6 +4,27 @@ Flappy Bird
 This repository is part of a presentation I gave for the Gothenburg C++ User Group. You can find
 the presentation material [here](presentation/index.html).
 
+Building
+========
+
+In order to build this project it is recommended to create a file called `CMakeUserPresets.json`
+in the root folder and add the following (assuming Windows):
+
+```json
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "dev",
+      "inherits": "dev-default-windows"
+    }
+  ]
+}
+```
+
+VisualStudio 2022 should then pick this up and generate the entire project and set `flappy_bird.exe`
+as the run target.
+
 Attributions
 ------------
 
