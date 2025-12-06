@@ -20,9 +20,10 @@ jobs:
             compiler: clang
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           submodules: 'recursive'
+          lfs: true
 
       - uses: ilammy/msvc-dev-cmd@v1
 
