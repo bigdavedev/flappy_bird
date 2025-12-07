@@ -58,6 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		row.appendChild(box);
 	}
+	
+	const oopContainer2 = document.getElementById("oop-memory-2");
+	addFullObject(oopContainer2, "ObjA");
+	addFullObject(oopContainer2, "ObjB");
+	addFullObject(oopContainer2, "ObjC");
+	addFullObject(oopContainer2, "ObjD");
 
 	// ---------- Build ECS Layout ----------
 	const ecsContainer = document.getElementById("ecs-memory");

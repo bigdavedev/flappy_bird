@@ -1,6 +1,6 @@
 # Copyright 2025 - David Brown <d.brown@bigdavedev.com>
 # SPDX-License-Identifier: MIT
-cmake_minimum_required (VERSION 3.31)
+cmake_minimum_required (VERSION 3.28)
 
 list (PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/tools/cmake)
 

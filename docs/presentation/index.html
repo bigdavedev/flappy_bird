@@ -18,529 +18,627 @@
 	</head>
 	<body>
 		<div class="reveal">
-			<div class="slides">
-				<section>
-					<h1>Game Development</h1>
-					<h2>A (very) Brief Introduction</h2>
-				</section>
+            <div class="slides">
+                <section>
+                    <h1>Game Development</h1>
+                    <h2>A (very) Brief Introduction</h2>
+                </section>
 
-				<!-- Introduction -->
-				<section>
-					<h2>C++ Game Dev Ecosystem</h2>
-					<h3>Era of big engines</h3>
-					<ul>
-						<li>Low barrier to entry</li>
-						<li>Not always the best solution</li>
-						<li>
-							Profit sharing
-							<ul>
-								<li>Engine takes a cut</li>
-								<li>Store platform takes a cut</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section>
-					<h2>C++ Game Dev Ecosystem</h2>
-					<p>What about control?</p>
-				</section>
-				<section>
-					<!-- PLATFORM LIBRARIES -->
-					<h2>Libraries</h2>
-					<div class="logo-group">
-						<div class="logo-grid">
-							<div class="logo-cell"><img src="img/sdl.png" \></div>
-							<div class="logo-cell"><img src="img/raylib.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
+                <!-- Introduction -->
+                <section>
+                    <h2>C++ Game Dev Ecosystem</h2>
+                    <h3>Era of big engines</h3>
+                    <ul>
+                        <li>Low barrier to entry</li>
+                        <li>Not always the best solution</li>
+                        <li>
+                            Profit sharing
+                            <ul>
+                                <li>Engine takes a cut</li>
+                                <li>Store platform takes a cut</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>C++ Game Dev Ecosystem</h2>
+                    <p>What about control?</p>
+                </section>
+                <section>
+                    <!-- PLATFORM LIBRARIES -->
+                    <h2>Libraries</h2>
+                    <div class="logo-group">
+                        <div class="logo-grid">
+                            <div class="logo-cell"><img src="img/sdl.png" \></div>
+                            <div class="logo-cell"><img src="img/raylib.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
 
-							<div class="logo-cell"><img src="img/glfw.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
+                            <div class="logo-cell"><img src="img/glfw.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
 
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
 
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-						</div>
-					</div>
-				</section>
-				<section>
-					<!-- FONT LIBRARIES -->
-					<h2>Libraries</h2>
-					<div class="logo-group">
-						<div class="logo-grid">
-							<div class="logo-cell logo-dim"><img src="img/sdl.png" \></div>
-							<div class="logo-cell logo-dim"><img src="img/raylib.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img src="img/sdl_ttf.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <!-- FONT LIBRARIES -->
+                    <h2>Libraries</h2>
+                    <div class="logo-group">
+                        <div class="logo-grid">
+                            <div class="logo-cell logo-dim"><img src="img/sdl.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/raylib.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img src="img/sdl_ttf.png" \></div>
 
-							<div class="logo-cell logo-dim"><img src="img/glfw.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img src="img/freetype.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/glfw.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img src="img/freetype.png" \></div>
 
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
 
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-						</div>
-					</div>
-				</section>
-				<section>
-					<!-- AUDIO LIBRARIES -->
-					<h2>Libraries</h2>
-					<div class="logo-group">
-						<div class="logo-grid">
-							<div class="logo-cell logo-dim"><img src="img/sdl.png" \></div>
-							<div class="logo-cell logo-dim"><img src="img/raylib.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/sdl_ttf.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <!-- AUDIO LIBRARIES -->
+                    <h2>Libraries</h2>
+                    <div class="logo-group">
+                        <div class="logo-grid">
+                            <div class="logo-cell logo-dim"><img src="img/sdl.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/raylib.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/sdl_ttf.png" \></div>
 
-							<div class="logo-cell logo-dim"><img src="img/glfw.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/freetype.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/glfw.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/freetype.png" \></div>
 
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/sdl_image.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img src="img/miniaudio.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/sdl_image.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img src="img/miniaudio.png"></div>
 
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img src="img/sdl_mixer.png" \></div>
-							<div class="logo-cell"><img src="img/fmod.png"></div>
-						</div>
-					</div>
-				</section>
-				<section>
-					<!-- MATHS LIBRARIES -->
-					<h2>Libraries</h2>
-					<div class="logo-group">
-						<div class="logo-grid">
-							<div class="logo-cell logo-dim"><img src="img/sdl.png" \></div>
-							<div class="logo-cell logo-dim"><img src="img/raylib.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/sdl_ttf.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img src="img/sdl_mixer.png" \></div>
+                            <div class="logo-cell"><img src="img/fmod.png"></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <!-- MATHS LIBRARIES -->
+                    <h2>Libraries</h2>
+                    <div class="logo-group">
+                        <div class="logo-grid">
+                            <div class="logo-cell logo-dim"><img src="img/sdl.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/raylib.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/sdl_ttf.png" \></div>
 
-							<div class="logo-cell logo-dim"><img src="img/glfw.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img src="img/glm.png"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/freetype.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/glfw.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img src="img/glm.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/freetype.png" \></div>
 
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/sdl_image.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/miniaudio.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/sdl_image.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/miniaudio.png"></div>
 
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/sdl_mixer.png" \></div>
-							<div class="logo-cell logo-dim"><img src="img/fmod.png"></div>
-						</div>
-					</div>
-				</section>
-				<section>
-					<!-- PHYSICS LIBRARIES -->
-					<h2>Libraries</h2>
-					<div class="logo-group">
-						<div class="logo-grid">
-							<div class="logo-cell logo-dim"><img src="img/sdl.png" \></div>
-							<div class="logo-cell logo-dim"><img src="img/raylib.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/sdl_ttf.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/sdl_mixer.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/fmod.png"></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <!-- PHYSICS LIBRARIES -->
+                    <h2>Libraries</h2>
+                    <div class="logo-group">
+                        <div class="logo-grid">
+                            <div class="logo-cell logo-dim"><img src="img/sdl.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/raylib.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/sdl_ttf.png" \></div>
 
-							<div class="logo-cell logo-dim"><img src="img/glfw.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/glm.png"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/freetype.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/glfw.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/glm.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/freetype.png" \></div>
 
-							<div class="logo-cell"><img src="img/bullet3.png"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/sdl_image.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/miniaudio.png"></div>
+                            <div class="logo-cell"><img src="img/bullet3.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/sdl_image.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/miniaudio.png"></div>
 
-							<div class="logo-cell"><img src="img/NVIDIA_PhysX.png"></div>
-							<div class="logo-cell"><img src="img/box2d.svg"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/sdl_mixer.png" \></div>
-							<div class="logo-cell logo-dim"><img src="img/fmod.png"></div>
-						</div>
-					</div>
-				</section>
-				<section>
-					<!-- GRAPHICS -->
-					<h2>Libraries</h2>
-					<div class="logo-group">
-						<div class="logo-grid">
-							<div class="logo-cell logo-dim"><img src="img/sdl.png" \></div>
-							<div class="logo-cell logo-dim"><img src="img/raylib.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img src="img/opengl.png"></div>
-							<div class="logo-cell"><img src="img/vulkan.png"></div>
-							<div class="logo-cell logo-dim"><img src="img/sdl_ttf.png" \></div>
+                            <div class="logo-cell"><img src="img/NVIDIA_PhysX.png"></div>
+                            <div class="logo-cell"><img src="img/box2d.svg"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/sdl_mixer.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/fmod.png"></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <!-- GRAPHICS -->
+                    <h2>Libraries</h2>
+                    <div class="logo-group">
+                        <div class="logo-grid">
+                            <div class="logo-cell logo-dim"><img src="img/sdl.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/raylib.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img src="img/opengl.png"></div>
+                            <div class="logo-cell"><img src="img/vulkan.png"></div>
+                            <div class="logo-cell logo-dim"><img src="img/sdl_ttf.png" \></div>
 
-							<div class="logo-cell logo-dim"><img src="img/glfw.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/glm.png"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/freetype.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/glfw.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/glm.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/freetype.png" \></div>
 
-							<div class="logo-cell logo-dim"><img src="img/bullet3.png"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/sdl_image.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/miniaudio.png"></div>
+                            <div class="logo-cell logo-dim"><img src="img/bullet3.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/sdl_image.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/miniaudio.png"></div>
 
-							<div class="logo-cell logo-dim"><img src="img/NVIDIA_PhysX.png"></div>
-							<div class="logo-cell logo-dim"><img src="img/box2d.svg"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/sdl_mixer.png" \></div>
-							<div class="logo-cell logo-dim"><img src="img/fmod.png"></div>
-						</div>
-					</div>
-				</section>
-				<section>
-					<!-- ECS LIBRARIES -->
-					<h2>Libraries</h2>
-					<div class="logo-group">
-						<div class="logo-grid">
-							<div class="logo-cell logo-dim"><img src="img/sdl.png" \></div>
-							<div class="logo-cell logo-dim"><img src="img/raylib.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/opengl.png"></div>
-							<div class="logo-cell logo-dim"><img src="img/vulkan.png"></div>
-							<div class="logo-cell logo-dim"><img src="img/sdl_ttf.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/NVIDIA_PhysX.png"></div>
+                            <div class="logo-cell logo-dim"><img src="img/box2d.svg"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/sdl_mixer.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/fmod.png"></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <!-- ECS LIBRARIES -->
+                    <h2>Libraries</h2>
+                    <div class="logo-group">
+                        <div class="logo-grid">
+                            <div class="logo-cell logo-dim"><img src="img/sdl.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/raylib.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/opengl.png"></div>
+                            <div class="logo-cell logo-dim"><img src="img/vulkan.png"></div>
+                            <div class="logo-cell logo-dim"><img src="img/sdl_ttf.png" \></div>
 
-							<div class="logo-cell logo-dim"><img src="img/glfw.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/glm.png"></div>
-							<div class="logo-cell"><img src="img/entt.png"></div>
-							<div class="logo-cell logo-dim"><img src="img/freetype.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/glfw.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/glm.png"></div>
+                            <div class="logo-cell"><img src="img/entt.png"></div>
+                            <div class="logo-cell logo-dim"><img src="img/freetype.png" \></div>
 
-							<div class="logo-cell logo-dim"><img src="img/bullet3.png"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/sdl_image.png" \></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img src="img/flecs.png"></div>
-							<div class="logo-cell logo-dim"><img src="img/miniaudio.png"></div>
+                            <div class="logo-cell logo-dim"><img src="img/bullet3.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/sdl_image.png" \></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img src="img/flecs.png"></div>
+                            <div class="logo-cell logo-dim"><img src="img/miniaudio.png"></div>
 
-							<div class="logo-cell logo-dim"><img src="img/NVIDIA_PhysX.png"></div>
-							<div class="logo-cell logo-dim"><img src="img/box2d.svg"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell logo-dim"><img src="img/sdl_mixer.png" \></div>
-							<div class="logo-cell logo-dim"><img src="img/fmod.png"></div>
-						</div>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<!-- OVERIVEW OF LIBRARIES -->
-					<h2>Libraries</h2>
-					<div class="logo-group">
-						<div class="logo-grid">
-							<div class="logo-cell"><img id="sdl_logo" src="img/sdl.png"></div>
-							<div class="logo-cell"><img src="img/raylib.png"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img src="img/opengl.png"></div>
-							<div class="logo-cell"><img src="img/vulkan.png"></div>
-							<div class="logo-cell"><img id="sdl_ttf_logo" src="img/sdl_ttf.png"></div>
+                            <div class="logo-cell logo-dim"><img src="img/NVIDIA_PhysX.png"></div>
+                            <div class="logo-cell logo-dim"><img src="img/box2d.svg"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell logo-dim"><img src="img/sdl_mixer.png" \></div>
+                            <div class="logo-cell logo-dim"><img src="img/fmod.png"></div>
+                        </div>
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <!-- OVERIVEW OF LIBRARIES -->
+                    <h2>Libraries</h2>
+                    <div class="logo-group">
+                        <div class="logo-grid">
+                            <div class="logo-cell"><img id="sdl_logo" src="img/sdl.png"></div>
+                            <div class="logo-cell"><img src="img/raylib.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img src="img/opengl.png"></div>
+                            <div class="logo-cell"><img src="img/vulkan.png"></div>
+                            <div class="logo-cell"><img id="sdl_ttf_logo" src="img/sdl_ttf.png"></div>
 
-							<div class="logo-cell"><img src="img/glfw.png"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img id="glm_logo" src="img/glm.png"></div>
-							<div class="logo-cell"><img id="entt_logo" src="img/entt.png"></div>
-							<div class="logo-cell"><img src="img/freetype.png"></div>
+                            <div class="logo-cell"><img src="img/glfw.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img id="glm_logo" src="img/glm.png"></div>
+                            <div class="logo-cell"><img id="entt_logo" src="img/entt.png"></div>
+                            <div class="logo-cell"><img src="img/freetype.png"></div>
 
-							<div class="logo-cell"><img src="img/bullet3.png"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img id="sdl_image_logo" src="img/sdl_image.png"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img src="img/flecs.png"></div>
-							<div class="logo-cell"><img src="img/miniaudio.png"></div>
+                            <div class="logo-cell"><img src="img/bullet3.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img id="sdl_image_logo" src="img/sdl_image.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img src="img/flecs.png"></div>
+                            <div class="logo-cell"><img src="img/miniaudio.png"></div>
 
-							<div class="logo-cell"><img src="img/NVIDIA_PhysX.png"></div>
-							<div class="logo-cell"><img src="img/box2d.svg"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img id="sdl_mixer_logo" src="img/sdl_mixer.png"></div>
-							<div class="logo-cell"><img src="img/fmod.png"></div>
-						</div>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2>Libraries</h2>
-					<div class="logo-group">
-						<div class="logo-grid">
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img id="glm_logo" src="img/glm.png"></div>
-							<div class="logo-cell"><img id="entt_logo" src="img/entt.png"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
+                            <div class="logo-cell"><img src="img/NVIDIA_PhysX.png"></div>
+                            <div class="logo-cell"><img src="img/box2d.svg"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img id="sdl_mixer_logo" src="img/sdl_mixer.png"></div>
+                            <div class="logo-cell"><img src="img/fmod.png"></div>
+                        </div>
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h2>Libraries</h2>
+                    <div class="logo-group">
+                        <div class="logo-grid">
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img id="glm_logo" src="img/glm.png"></div>
+                            <div class="logo-cell"><img id="entt_logo" src="img/entt.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
 
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img id="sdl_logo" src="img/sdl.png"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img id="sdl_logo" src="img/sdl.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
 
-							<div class="logo-cell"></div>
-							<div class="logo-cell"><img id="sdl_ttf_logo" src="img/sdl_ttf.png"></div>
-							<div class="logo-cell"><img id="sdl_image_logo" src="img/sdl_image.png"></div>
-							<div class="logo-cell"><img id="sdl_mixer_logo" src="img/sdl_mixer.png"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"><img id="sdl_ttf_logo" src="img/sdl_ttf.png"></div>
+                            <div class="logo-cell"><img id="sdl_image_logo" src="img/sdl_image.png"></div>
+                            <div class="logo-cell"><img id="sdl_mixer_logo" src="img/sdl_mixer.png"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
 
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-							<div class="logo-cell"></div>
-						</div>
-					</div>
-				</section>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                            <div class="logo-cell"></div>
+                        </div>
+                    </div>
+                </section>
 
 
-				<!-- SDL3 -->
-				<section>
-					<h2>Simple DirectMedia Layer</h2>
-				</section>
-				<section data-auto-animate>
-					<h2>Simple DirectMedia Layer</h2>
-					<ul>
-						<li>
-							Provides all the system abstractions we need:
-							<ul>
-								<li>Windowing</li>
-								<li>Input (Keyboard, Mouse, Touch, Game Controllers)</li>
-								<li>GPU Accelerated Rendering</li>
-								<li>Audio</li>
-								<li>Filesystem</li>
-								<li>Multi-threading</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section data-auto-animate>
-					<h2>Simple DirectMedia Layer</h2>
-					<ul>
-						<li>
-							Has several useful extra libraries
-							<ul>
-								<li>
-									SDL_image
-									<ul>
-										<li>Loads many different formats</li>
-										<li>Can load directly as textures</li>
-									</ul>
-								</li>
-								<li>
-									SDL_ttf
-									<ul>
-										<li>Loads TrueType fonts</li>
-									</ul>
-								</li>
-								<li>
-									SDL_mixer
-									<ul>
-										<li>Loads many different formats</li>
-										<li>Exposes simple API for playback and mixing</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section data-auto-animate>
-					<h2>SDL - Foundation</h2>
-					<pre data-id="sdl_setup">
-					<code data-trim data-line-numbers class="language-cpp"><script type="text/template">
-							#include "SDL3/SDL.h"
-							#include "SDL3/SDL_main.h"
+                <!-- SDL3 -->
+                <section>
+                    <h2>Simple DirectMedia Layer</h2>
+                </section>
+                <section data-auto-animate>
+                    <h2>Simple DirectMedia Layer</h2>
+                    <ul>
+                        <li>
+                            Provides all the system abstractions we need:
+                            <ul>
+                                <li>Windowing</li>
+                                <li>Input (Keyboard, Mouse, Touch, Game Controllers)</li>
+                                <li>GPU Accelerated Rendering</li>
+                                <li>Audio</li>
+                                <li>Filesystem</li>
+                                <li>Multi-threading</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h2>Simple DirectMedia Layer</h2>
+                    <ul>
+                        <li>
+                            Has several useful extra libraries
+                            <ul>
+                                <li>
+                                    SDL_image
+                                    <ul>
+                                        <li>Loads many different formats</li>
+                                        <li>Can load directly as textures</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    SDL_ttf
+                                    <ul>
+                                        <li>Loads TrueType fonts</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    SDL_mixer
+                                    <ul>
+                                        <li>Loads many different formats</li>
+                                        <li>Exposes simple API for playback and mixing</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h2>SDL - Foundation</h2>
+                    <pre data-id="sdl_setup">
+                        <code data-trim data-line-numbers="5-8|10-13|15|17-20|21-28|30-31|33-34|36-37|39" class="language-cpp">
+                            <script type="text/template">
+							    #include "SDL3/SDL.h"
+							    #include "SDL3/SDL_main.h"
 
-							int main(int argc, char** argv[]) {
-								if (!SDL_Init(SDL_VIDEO)) {
-									std::println("Failed to start SDL: {}", SDL_GetError());
-									return -1;
-								}
+							    int main(int argc, char** argv[]) {
+								    if (!SDL_Init(SDL_VIDEO)) {
+									    std::println("Failed to start SDL: {}", SDL_GetError());
+									    return -1;
+								    }
 
-								SDL_Quit();
-								return 0;
-							}
-						</script></code>
+								    SDL_Window* window = SDL_CreateWindow("Flappy Bird",
+								                                          flappy_bird::screen_width,
+								                                          flappy_bird::screen_height,
+								                                          SDL_WindowFlags{});
+
+								    SDL_Renderer* renderer = SDL_CreateRenderer(window, nullptr);
+
+								    auto game_state = flappy_bird::game_state::running;
+
+								    while (game_state != flappy_bird::game_state::exiting)
+								    {
+									    SDL_Event sdl_event{};
+									    while (SDL_PollEvent(&sdl_event))
+									    {
+										    if (sdl_event.type == SDL_EVENT_QUIT)
+										    {
+											    game_state = flappy_bird::game_state::exiting;
+										    }
+									    }
+
+									    SDL_SetRenderDrawColor(sdl_renderer, 0, 0, 0, 255);
+									    SDL_RenderClear(sdl_renderer);
+
+									    SDL_RenderPresent(renderer);
+								    }
+
+								    SDL_DestroyRenderer(renderer);
+								    SDL_DestroyWindow(window);
+
+								    SDL_Quit();
+								    return 0;
+							    }
+						    </script>
+                        </code>
 					</pre>
-				</section>
-				<section data-auto-animate>
-					<h2>SDL - Foundation</h2>
-					<pre data-id="sdl_setup">
-					<code data-trim data-line-numbers="10-15|17-18" class="language-cpp"><script type="text/template">
-							#include "SDL3/SDL.h"
-							#include "SDL3/SDL_main.h"
+                </section>
 
-							int main(int argc, char** argv[]) {
-								if (!SDL_Init(SDL_VIDEO)) {
-									std::println("Failed to start SDL: {}", SDL_GetError());
-									return -1;
-								}
+                <!-- ECS -->
+                <section>
+                    <h1>A brief segue</h1>
+                </section>
 
-								SDL_Window* window = SDL_CreateWindow("Flappy Bird",
-								                                      flappy_bird::screen_width,
-								                                      flappy_bird::screen_height,
-								                                      SDL_WindowFlags{});
+                <section data-auto-animate data-reset-slide="oop-memory">
+                    <h2>The Game Object</h2>
+                    <div id="oop-memory"></div>
+                    <div class="fragment" data-step="add-pos"></div>
+                    <div class="fragment" data-step="add-vel"></div>
+                    <div class="fragment" data-step="add-sprite"></div>
+                    <div class="fragment" data-step="add-coll"></div>
+                    <div class="fragment" data-step="add-objb"></div>
+                    <div class="fragment" data-step="add-objc"></div>
+                    <div class="fragment" data-step="add-objd"></div>
+                </section>
 
-								SDL_Renderer* renderer = SDL_CreateRenderer(window, nullptr);
+                <section>
+                    <h2>The Game Object</h2>
+                    <ul>
+                        <li>Inheriting behaviour breaks at scale
+                            <ul>
+                                <li>Objects can walk/run</li>
+                                <li>Objects can fly</li>
+                                <li>Objects maybe NPCs</li>
+                                <li>Objects temporarily gain power-ups</li>
+                            </ul>
+                        </li>
+                        <li>Behaviour and data tightly coupled in classes</li>
+                        <li>
+                            Memory poorly layed in
+                            <ul>
+                                <li>Non-contiguous storage means cache-misses</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
 
-								SDL_DestroyRenderer(renderer);
-								SDL_DestroyWindow(window);
+                <section>
+                    <h2>Composition over Inheritance</h2>
+                    <ul>
+                        <li>
+                            Game Devs began experimenting with composition in the early 2000s
+                            <ul>
+                                <li><a href="https://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/">Evolve Your Hierarchy - Mick West</a></li>
+                                <li><a href="https://gamearchitect.net/Articles/GameObjects1.html">Game Object Structure - Kyle Wilson</a></li>
+                                <li>These focussed on the <i>architectural benefits</i> of composition</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Brought to the mainstream at CppCon 2014
+                            <a href="https://www.youtube.com/watch?v=rX0ItVEVjHc">Data Oriented Design - Mike Acton (YouTube)</a>
+                        </li>
+                    </ul>
+                </section>
 
-								SDL_Quit();
-								return 0;
-							}
-						</script></code>
-					</pre>
-				</section>
-				<section data-auto-animate>
-					<h2>SDL - Foundation</h2>
-					<pre data-id="sdl_setup">
-					<code data-trim data-line-numbers="17-20|21-28|30-31" class="language-cpp"><script type="text/template">
-							#include "SDL3/SDL.h"
-							#include "SDL3/SDL_main.h"
+                <section>
+                    <h2>Data Oriented Design</h2>
+                    <ul>
+                        <li>Mike Acton reframed the discussion
+                            <ul>
+                                <li>Know you <b>data</b></li>
+                                <li>Understand your <b>data</b></li>
+                                <li>Design your <b>data</b></li>
+                            </ul>
+                        </li>
+                        <li>Performance sky-rockets</li>
+                        <li>Better cache usage</li>
+                        <li>Contiguous storage</li>
+                    </ul>
+                </section>
 
-							int main(int argc, char** argv[]) {
-								if (!SDL_Init(SDL_VIDEO)) {
-									std::println("Failed to start SDL: {}", SDL_GetError());
-									return -1;
-								}
+                <section>
+                    <h2>ECS: Fundamentals</h2>
+                    <ul>
+                        <li>
+                            Entity
+                            <ul>
+                                <li>Typically and integer handle</li>
+                                <li>Cheap to copy around</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Components
+                            <ul>
+                                <li>Ideally a struct with required data</li>
+                                <li>Also cheap to copy around</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Systems
+                            <ul>
+                                <li>A function that operates on components</li>
+                                <li>Easy to reason about</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
 
-								SDL_Window* window = SDL_CreateWindow("Flappy Bird",
-								                                      flappy_bird::screen_width,
-								                                      flappy_bird::screen_height,
-								                                      SDL_WindowFlags{});
 
-								SDL_Renderer* renderer = SDL_CreateRenderer(window, nullptr);
 
-								auto game_state = flappy_bird::game_state::running;
+                <section data-auto-animate>
+                    <h2>The Game Object</h2>
+                    <div id="oop-memory-2"></div>
+                </section>
 
-								while (game_state != flappy_bird::game_state::exiting)
-								{
-									SDL_Event sdl_event{};
-									while (SDL_PollEvent(&sdl_event))
-									{
-										if (sdl_event.type == SDL_EVENT_QUIT)
-										{
-											game_state = flappy_bird::game_state::exiting;
-										}
-									}
+                <section data-auto-animate>
+                    <h2>ECS: Components</h2>
+                    <div id="ecs-memory"></div>
+                </section>
 
-									SDL_RenderClear(renderer);
-									SDL_RenderPresent(renderer);
-								}
+                <section>
+                    <h2>EnTT</h2>
+                    <ul>
+                        <li>Free, Open Source ECS library (MIT)</li>
+                        <li>Fastest on the market</li>
+                        <li>Simple, clean API</li>
+                        <li>
+                            Used in many games
+                            <ul>
+                                <li>Minecraft</li>
+                                <li>Diablo II: Resurrected</li>
+                                <li>Call of Duty: Vanguard</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>EnTT</h2>
+                    <ul>
+                        <li>
+                            Everything start with the Registry
+                            <ul>
+                                <li>Stores all entity IDs</li>
+                                <li>Adds/removes components to entities</li>
+                                <li>Provides views/groups to iterate entities</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>EnTT</h2>
+                    <pre>
+                        <code data-trim data-line-numbers="1-7|9-11|13-14|16-18" class="language-cpp">
+                            <script type="text/template">
+                                struct transform final {
+                                    glm::vec2 position{};
+                                };
 
-								SDL_DestroyRenderer(renderer);
-								SDL_DestroyWindow(window);
+                                struct velocity final {
+                                    glm::vec2 v{};
+                                };
 
-								SDL_Quit();
-								return 0;
-							}
-						</script></code>
-					</pre>
-				</section>
+                                entt::registry registry{};
 
-				<!-- ECS -->
-				<section>
-					<h1>A brief segue</h1>
-				</section>
+                                auto player = registry.create();
 
-				<section data-auto-animate data-reset-slide="oop-memory">
-					<h2>The Game Object</h2>
-					<div id="oop-memory"></div>
-					<div class="fragment" data-step="add-pos"></div>
-					<div class="fragment" data-step="add-vel"></div>
-					<div class="fragment" data-step="add-sprite"></div>
-					<div class="fragment" data-step="add-coll"></div>
-					<div class="fragment" data-step="add-objb"></div>
-					<div class="fragment" data-step="add-objc"></div>
-					<div class="fragment" data-step="add-objd"></div>
-				</section>
+                                registry.emplace<transform>(player, 0.0f, 100.0f);
+                                registry.emplace<velocity>(player, 0.0f, 0.0f);
 
-				<section data-auto-animate>
-					<h2>ECS: Components</h2>
-					<div id="ecs-memory"></div>
-				</section>
+                                for (auto& [t, v]: registry.view<transform, velocity>()) {
+                                    t.position += v.v * dt;
+                                }
+                            </script>
+                        </code>
+                    </pre>
+                </section>
 
-				<section>
-					<h2>EnTT</h2>
-				</section>
+                <!-- Flappy Bird -->
+                <section>
+                    <h2>Making Flappy Bird</h2>
+                </section>
 
-				<!-- Flappy Bird -->
-				<section>
-					<h2>Making Flappy Bird</h2>
-				</section>
+                <!-- Wrap up -->
+                <section>
+                </section>
 
-				<!-- Wrap up -->
-				<section>
-				</section>
-
-			</div>
+            </div>
 		</div>
 
 		<script src="dist/reveal.js"></script>
