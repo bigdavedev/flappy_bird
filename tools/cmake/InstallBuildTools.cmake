@@ -31,6 +31,6 @@ function (install_ninja)
 endfunction (install_ninja)
 
 
-if (${CMAKE_GENERATOR} EQUAL "Ninja Multi-Config")
+if ("${CMAKE_GENERATOR}" STREQUAL "Ninja Multi-Config")
 	install_ninja ()
 endif ()

@@ -582,7 +582,7 @@
 
 				<!-- ECS -->
 				<section>
-					<h1>A brief segue</h1>
+					<h1 class="r-fit-text">A brief segue</h1>
 				</section>
 
 				<section data-auto-animate data-reset-slide="oop-memory">
@@ -750,7 +750,10 @@
 
 				<!-- Flappy Bird -->
 				<section data-auto-animate>
-					<h2>Making Flappy Bird</h2>
+					<h2 class="r-fit-text" data-id="making_flappy">Making Flappy Bird</h2>
+				</section>
+				<section data-auto-animate>
+					<h2 data-id="making_flappy">Making Flappy Bird</h2>
 					<img id="screenshot" src="img/flappy_bird.png">
 				</section>
 				<section data-auto-animate>
@@ -1015,11 +1018,18 @@
 					<video data-autoplay src="video/bird_control.mp4"></video>
 				</section>
 
-				<section>
+				<section data-auto-animate>
+					<h2 data-id="making_pipes">Making Flappy Bird</h2>
+					<div class="r-stack">
+						<img class="fragment fade-out" src="img/flappy_bird_no_pipes.png">
+						<img clsss="fragment" id="pipes_screenshot" src="img/flappy_bird.png">
+					</div>
+				</section>
+				<section data-auto-animate>
 					<h2>Making Flappy Bird</h2>
 					<div style="display: flex">
 						<div>
-							<img src="img/flappy_bird.png">
+							<img id="screenshot" src="img/flappy_bird.png">
 						</div>
 						<div style="margin: 12px auto">
 							<h3>Pipes</h3>
@@ -1607,11 +1617,21 @@
 				</section>
 
 				<section>
-					<h1>Thank you!</h1>
+					<h1 class="r-fit-text">Thank you!</h1>
 				</section>
 
 				<section>
 					<h1>Questions?</h1>
+					<div style="display: flex; align-items: center; justify-content: center; column-gap: 124px">
+						<div style="display: flex-column">
+							<h2>Slides</h2>
+							<a href="https://bigdavedev.github.io/flappy_bird/presentation/index.html"><img src="img/slides_qr.png"></a>
+						</div>
+						<div style="display: flex-column">
+							<h2>Repo</h2>
+							<a href="https://github.com/bigdavedev/flappy_bird/"><img src="img/repo_qr.png"></a>
+						</div>
+					</div>
 				</section>
 
 			</div>

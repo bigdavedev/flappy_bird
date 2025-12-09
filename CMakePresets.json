@@ -26,6 +26,17 @@
 			}
 		},
 		{
+			"name": "dev-default-linux",
+			"displayName": "Default configuration for developers on Linux",
+			"hidden": true,
+			"inherits": [
+				"dev-default",
+				"linux",
+				"gcc",
+				"ninja"
+			]
+		},
+		{
 			"name": "dev-default-windows",
 			"displayName": "Default configuration for developers on Windows",
 			"hidden": true,

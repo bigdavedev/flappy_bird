@@ -8,8 +8,9 @@ Building
 ========
 
 In order to build this project it is recommended to create a file called `CMakeUserPresets.json`
-in the root folder and add the following (assuming Windows):
+in the root folder and add the following:
 
+### Windows
 ```json
 {
   "version": 6,
@@ -21,9 +22,39 @@ in the root folder and add the following (assuming Windows):
   ]
 }
 ```
-
 VisualStudio 2022 should then pick this up and generate the entire project and set `flappy_bird.exe`
 as the run target.
+
+### Linux
+```json
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "dev",
+      "inherits": "dev-default-linux"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "dev",
+      "configuration": "Debug"
+    },
+    {
+      "name": "release",
+      "configurePreset": "dev",
+      "configuration": "Release"
+    }
+  ]
+}
+```
+
+Then configure and build with:
+```bash
+cmake --preset dev
+cmake --build --preset debug
+```
 
 Attributions
 ------------
