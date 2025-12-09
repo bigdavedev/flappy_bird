@@ -1160,9 +1160,32 @@
 
 				<section>
 					<h2>Bumping Into Things</h2>
+					<h3>Axis Aligned Bounding Box</h3>
+					<img src="img/aabb_collision.svg">
+				</section>
+
+				<section>
+					<h2>Bumping Into Things</h2>
+					<h3>Circle <-> Axis Aligned Bounding Box</h3>
+					<img src="img/circle_aabb_collision.svg">
+				</section>
+
+				<section>
+					<h2>Bumping Into Things</h2>
+					<p>For a full treatment I recommend the following book</p>
+					<div style="display: flex flex-row; align-items: center; justify-content: center">
+						<a href="http://www.collisiondetection2d.net/">
+							<img src="img/collision_detection_2d_book.png">
+							<img src="img/collision_detection_2d_book_qr.png">
+						</a>
+					</div>
+				</section>
+
+				<section>
+					<h2>Bumping Into Things</h2>
 					<ul>
 						<li>SDL provides AABB intersection tests</li>
-						<li>Perfect for Flappy Bird</li>
+						<li>Good enough for Flappy Bird</li>
 						<li class="fragment">Attach an AABB collider component to entities</li>
 						<li class="fragment">
 							Check the bird entity against all colliders
@@ -1576,10 +1599,19 @@
 							<ul>
 								<li>Use Triggers to create collectible power-ups</li>
 								<li>Combine with timers for invincibility</li>
+								<li>Use circle <-> AABB for collision detection</li>
 								<li>What else can you think of?</li>
 							</ul>
 						</li>
 					</ul>
+				</section>
+
+				<section>
+					<h1>Thank you!</h1>
+				</section>
+
+				<section>
+					<h1>Questions?</h1>
 				</section>
 
 			</div>
