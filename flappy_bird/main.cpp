@@ -62,9 +62,9 @@ struct transform final
 
 struct sprite final
 {
-	sprite_ids id;
+	sprite_ids id{};
 
-	glm::vec2 size;
+	glm::vec2 size{};
 
 	SDL_FlipMode flip_mode{SDL_FlipMode::SDL_FLIP_NONE};
 };
@@ -76,12 +76,12 @@ struct player_input final
 
 struct velocity final
 {
-	glm::vec2 velocity;
+	glm::vec2 v{};
 };
 
 struct aabb_collider final
 {
-	glm::vec2 size;
+	glm::vec2 size{};
 };
 
 struct trigger final
@@ -92,9 +92,9 @@ struct trigger final
 
 struct text final
 {
-	font_ids font_id;
+	font_ids font_id{};
 
-	std::string string;
+	std::string string{};
 };
 
 struct score final
@@ -104,7 +104,7 @@ struct score final
 
 struct texture final
 {
-	SDL_Texture* texture;
+	SDL_Texture* sdl_texture{};
 
 	glm::vec2 size{};
 };
@@ -121,7 +121,7 @@ using font_lookup = std::unordered_map<font_ids, font>;
 void apply_gravity(entt::registry& registry, float dt)
 {
 	registry.view<flappy_bird::tags::bird, flappy_bird::velocity>().each(
-	    [dt](auto& vel) { vel.velocity.y += 1200.0f * dt; });
+	    [dt](auto& vel) { vel.v.y += 1200.0f * dt; });
 }
 
 void update_velocity(entt::registry& registry, float dt)
@@ -130,7 +130,7 @@ void update_velocity(entt::registry& registry, float dt)
 	for (auto entity: view)
 	{
 		auto [t, v] = view.get(entity);
-		t.position += v.velocity * dt;
+		t.position += v.v * dt;
 	}
 }
 
@@ -142,7 +142,7 @@ void handle_player_input(entt::registry& registry)
 		auto [input, vel] = view.get(entity);
 		if (input.flap)
 		{
-			vel.velocity.y = -450.0f;
+			vel.v.y = -450.0f;
 			input.flap = false;
 		}
 	}
@@ -165,7 +165,7 @@ void render_sprites(entt::registry& registry, SDL_Renderer* renderer)
 		                                .h = sprite.size.y};
 
 		SDL_RenderTextureRotated(renderer,
-		                         texture.texture,
+		                         texture.sdl_texture,
 		                         &src_rect,
 		                         &dst_rect,
 		                         static_cast<double>(transform.rotation),
@@ -178,11 +178,11 @@ void render_score(entt::registry& registry, TTF_TextEngine* text_renderer)
 {
 	auto  current_score = registry.ctx().get<flappy_bird::score>().value;
 	auto* hud_font = registry.ctx()
-	                 .get<flappy_bird::font_lookup>()
-	                 .at(flappy_bird::font_ids::hud)
-	                 .ttf_font;
+	                     .get<flappy_bird::font_lookup>()
+	                     .at(flappy_bird::font_ids::hud)
+	                     .ttf_font;
 
-	auto  string = std::format("{}", current_score);
+	auto  string = std::format("{: >3}", current_score);
 	auto* text =
 	    TTF_CreateText(text_renderer, hud_font, string.c_str(), string.size());
 
@@ -345,7 +345,7 @@ void load_all_sprites(SDL_Renderer* renderer, sprite_lookup& sprites)
 		SDL_SetTextureScaleMode(sdl_texture,
 		                        SDL_ScaleMode::SDL_SCALEMODE_PIXELART);
 
-		return texture{.texture = sdl_texture, .size = size};
+		return texture{.sdl_texture = sdl_texture, .size = size};
 	};
 
 	sprites[sprite_ids::bird] = load_sprite("data/sprites/bird-2.png");
@@ -356,7 +356,7 @@ void load_all_fonts(font_lookup& fonts)
 {
 	auto const load_font = [](std::string_view path, float size) {
 		TTF_Font* ttf_font = TTF_OpenFont(path.data(), size);
-		return font {.ttf_font = ttf_font};
+		return font{.ttf_font = ttf_font};
 	};
 
 	fonts[font_ids::hud] =
@@ -496,7 +496,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[])
 
 	for (auto& [key, sprite]: registry.ctx().get<flappy_bird::sprite_lookup>())
 	{
-		SDL_DestroyTexture(sprite.texture);
+		SDL_DestroyTexture(sprite.sdl_texture);
 	}
 
 	TTF_DestroyRendererTextEngine(text_renderer);
