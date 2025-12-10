@@ -99,7 +99,7 @@ struct text final
 
 struct score final
 {
-	int score{};
+	int value{};
 };
 
 struct texture final
@@ -113,7 +113,7 @@ using sprite_lookup = std::unordered_map<sprite_ids, texture>;
 
 struct font final
 {
-	TTF_Font* font{};
+	TTF_Font* ttf_font{};
 };
 
 using font_lookup = std::unordered_map<font_ids, font>;
@@ -176,15 +176,15 @@ void render_sprites(entt::registry& registry, SDL_Renderer* renderer)
 
 void render_score(entt::registry& registry, TTF_TextEngine* text_renderer)
 {
-	auto  score = registry.ctx().get<flappy_bird::score>().score;
-	auto* font = registry.ctx()
+	auto  current_score = registry.ctx().get<flappy_bird::score>().value;
+	auto* hud_font = registry.ctx()
 	                 .get<flappy_bird::font_lookup>()
 	                 .at(flappy_bird::font_ids::hud)
-	                 .font;
+	                 .ttf_font;
 
-	auto  string = std::format("{}", score);
+	auto  string = std::format("{}", current_score);
 	auto* text =
-	    TTF_CreateText(text_renderer, font, string.c_str(), string.size());
+	    TTF_CreateText(text_renderer, hud_font, string.c_str(), string.size());
 
 	int text_width{};
 	TTF_GetTextSize(text, &text_width, nullptr);
@@ -336,15 +336,16 @@ bool check_collision(entt::registry& registry)
 
 void load_all_sprites(SDL_Renderer* renderer, sprite_lookup& sprites)
 {
-	auto const load_sprite = [renderer](std::string_view path) -> texture {
-		SDL_Texture* texture = IMG_LoadTexture(renderer, path.data());
+	auto const load_sprite = [renderer](std::string_view path) {
+		SDL_Texture* sdl_texture = IMG_LoadTexture(renderer, path.data());
 
 		glm::vec2 size{};
-		SDL_GetTextureSize(texture, &size.x, &size.y);
+		SDL_GetTextureSize(sdl_texture, &size.x, &size.y);
 
-		SDL_SetTextureScaleMode(texture, SDL_ScaleMode::SDL_SCALEMODE_PIXELART);
+		SDL_SetTextureScaleMode(sdl_texture,
+		                        SDL_ScaleMode::SDL_SCALEMODE_PIXELART);
 
-		return {.texture = texture, .size = size};
+		return texture{.texture = sdl_texture, .size = size};
 	};
 
 	sprites[sprite_ids::bird] = load_sprite("data/sprites/bird-2.png");
@@ -353,9 +354,9 @@ void load_all_sprites(SDL_Renderer* renderer, sprite_lookup& sprites)
 
 void load_all_fonts(font_lookup& fonts)
 {
-	auto const load_font = [](std::string_view path, float size) -> font {
+	auto const load_font = [](std::string_view path, float size) {
 		TTF_Font* ttf_font = TTF_OpenFont(path.data(), size);
-		return {.font = ttf_font};
+		return font {.ttf_font = ttf_font};
 	};
 
 	fonts[font_ids::hud] =
@@ -464,7 +465,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[])
 				    if (trigger.triggered and not trigger.consumed)
 				    {
 					    trigger.consumed = true;
-					    registry.ctx().get<flappy_bird::score>().score++;
+					    registry.ctx().get<flappy_bird::score>().value++;
 				    }
 			    });
 		}
@@ -501,7 +502,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[])
 	TTF_DestroyRendererTextEngine(text_renderer);
 	for (auto& [key, font]: registry.ctx().get<flappy_bird::font_lookup>())
 	{
-		TTF_CloseFont(font.font);
+		TTF_CloseFont(font.ttf_font);
 	}
 
 	SDL_DestroyRenderer(renderer);
