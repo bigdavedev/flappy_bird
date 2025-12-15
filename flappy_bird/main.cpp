@@ -23,8 +23,22 @@ namespace flappy_bird
 {
 namespace
 {
+constexpr float pixels_per_metre = 64.0F;
+
+constexpr float pixels_to_metres(float pixels)
+{
+	return pixels / pixels_per_metre;
+}
+
+constexpr float metres_to_pixels(float metres)
+{
+	return metres * pixels_per_metre;
+}
 constexpr int screen_width = 320;
 constexpr int screen_height = 640;
+
+constexpr float world_width = pixels_to_metres(screen_width);
+constexpr float world_height = pixels_to_metres(screen_height);
 
 enum class game_state
 {
@@ -121,7 +135,7 @@ using font_lookup = std::unordered_map<font_ids, font>;
 void apply_gravity(entt::registry& registry, float dt)
 {
 	registry.view<flappy_bird::tags::bird, flappy_bird::velocity>().each(
-	    [dt](auto& vel) { vel.v.y += 1200.0f * dt; });
+	    [dt](auto& vel) { vel.v.y += 9.8F * dt; });
 }
 
 void update_velocity(entt::registry& registry, float dt)
@@ -142,7 +156,7 @@ void handle_player_input(entt::registry& registry)
 		auto [input, vel] = view.get(entity);
 		if (input.flap)
 		{
-			vel.v.y = -450.0f;
+			vel.v.y = -4.0f;
 			input.flap = false;
 		}
 	}
@@ -159,10 +173,11 @@ void render_sprites(entt::registry& registry, SDL_Renderer* renderer)
 		auto const src_rect =
 		    SDL_FRect{.w = texture.size.x, .h = texture.size.y};
 
-		auto const dst_rect = SDL_FRect{.x = transform.position.x,
-		                                .y = transform.position.y,
-		                                .w = sprite.size.x,
-		                                .h = sprite.size.y};
+		auto const dst_rect =
+		    SDL_FRect{.x = metres_to_pixels(transform.position.x),
+		              .y = metres_to_pixels(transform.position.y),
+		              .w = metres_to_pixels(sprite.size.x),
+		              .h = metres_to_pixels(sprite.size.y)};
 
 		SDL_RenderTextureRotated(renderer,
 		                         texture.sdl_texture,
@@ -202,10 +217,10 @@ void create_bird_entity(entt::registry& registry)
 	auto bird = registry.create();
 	registry.emplace<transform>(bird,
 	                            transform{
-	                                .position{64, 128},
+	                                .position{1.0F, 2.0F},
     });
 
-	auto const bird_size = glm::vec2{32, 32};
+	auto const bird_size = glm::vec2{0.5F, 0.5F};
 
 	registry.emplace<sprite>(bird, sprite_ids::bird, bird_size);
 	registry.emplace<aabb_collider>(bird, bird_size);
@@ -216,10 +231,10 @@ void create_bird_entity(entt::registry& registry)
 
 void spawn_pipe(entt::registry& registry)
 {
-	constexpr float gap_size = 150.0f;
-	constexpr float gap_width = 64.0f;
+	constexpr float gap_size = 1.5F;
+	constexpr float pipe_width = 1.0F;
 
-	float gap_y = 150.0f + (std::rand() % 250);
+	float gap_y = gap_size + ((std::rand() % 250) / 100.0F);
 
 	auto const create_pipe = [&](glm::vec2 position, glm::vec2 size) {
 		auto entity = registry.create();
@@ -230,28 +245,28 @@ void spawn_pipe(entt::registry& registry)
 		                            });
 		registry.emplace<sprite>(entity,
 		                         sprite{.id = sprite_ids::pipe, .size = size});
-		registry.emplace<velocity>(entity, glm::vec2{-150.0f, 0.0f});
+		registry.emplace<velocity>(entity, glm::vec2{-2.0F, 0.0f});
 		registry.emplace<aabb_collider>(entity, size);
 	};
 
-	auto const top_pipe_position = glm::vec2{screen_width, 0.0F};
-	auto const top_pipe_size = glm::vec2{gap_width, gap_y - (gap_size * 0.5F)};
+	auto const top_pipe_position = glm::vec2{world_width, 0.0F};
+	auto const top_pipe_size = glm::vec2{pipe_width, gap_y - (gap_size * 0.5F)};
 	create_pipe(top_pipe_position, top_pipe_size);
 
 	auto const bottom_pipe_position =
-	    glm::vec2{screen_width, gap_y + (gap_size * 0.5F)};
+	    glm::vec2{world_width, gap_y + (gap_size * 0.5F)};
 	auto const bottom_pipe_size =
-	    glm::vec2{gap_width, screen_height - gap_y - (gap_size * 0.5f)};
+	    glm::vec2{pipe_width, world_height - gap_y - (gap_size * 0.5f)};
 	create_pipe(bottom_pipe_position, bottom_pipe_size);
 
 	auto score_trigger = registry.create();
 	registry.emplace<transform>(
 	    score_trigger,
 	    transform{
-	        .position = glm::vec2{screen_width + gap_width, top_pipe_size.y}
+	        .position = glm::vec2{world_width, top_pipe_size.y}
     });
-	registry.emplace<aabb_collider>(score_trigger, glm::vec2{10.0F, gap_size});
-	registry.emplace<velocity>(score_trigger, glm::vec2{-150.0F, 0.0F});
+	registry.emplace<aabb_collider>(score_trigger, glm::vec2{0.1F, gap_size});
+	registry.emplace<velocity>(score_trigger, glm::vec2{-2.0F, 0.0F});
 	registry.emplace<trigger>(score_trigger);
 }
 
@@ -261,7 +276,7 @@ void cleanup_offscreen(entt::registry& registry)
 
 	auto const offscreen = [&](auto entity) {
 		auto const& [t, s] = pipes.get(entity);
-		return t.position.x + s.size.x < 0;
+		return metres_to_pixels(t.position.x + s.size.x) < 0;
 	};
 
 	using std::ranges::to;
@@ -319,7 +334,8 @@ bool check_collision(entt::registry& registry)
 	    make_collider_box(bird_view.get<transform>(bird_entity),
 	                      bird_view.get<aabb_collider>(bird_entity));
 
-	if (bird_box.y < 0.0f || bird_box.y + bird_box.h > screen_height)
+	if (bird_box.y < 0.0f ||
+	    bird_box.y + bird_box.h > pixels_to_metres(screen_height))
 	{
 		return true;
 	}
@@ -479,10 +495,13 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[])
 		{
 			registry.view<flappy_bird::transform, flappy_bird::aabb_collider>()
 			    .each([renderer](auto transform, auto collider) {
-				    auto const box = SDL_FRect{.x = transform.position.x,
-				                               .y = transform.position.y,
-				                               .w = collider.size.x,
-				                               .h = collider.size.y};
+				    auto const box = SDL_FRect{
+				        .x =
+				            flappy_bird::metres_to_pixels(transform.position.x),
+				        .y =
+				            flappy_bird::metres_to_pixels(transform.position.y),
+				        .w = flappy_bird::metres_to_pixels(collider.size.x),
+				        .h = flappy_bird::metres_to_pixels(collider.size.y)};
 
 				    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 				    SDL_RenderRect(renderer, &box);
